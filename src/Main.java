@@ -2,6 +2,7 @@
 
 import entities.Account;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -10,8 +11,10 @@ public class Main {
         int number;
         double balance = 0;
         String initDeposit = null;
-        double deposit;
+        double value;
 
+
+        Locale.setDefault(Locale.US);
         Scanner scanner = new Scanner(System.in);
 
 
@@ -27,15 +30,38 @@ public class Main {
         System.out.println();
         if (initDeposit.equals("y")) {
             System.out.print("Enter initial deposit value: ");
-            deposit = scanner.nextDouble();
-            account.deposit(deposit);
+            value = scanner.nextDouble();
+            account.deposit(value);
         }
-        System.out.println("Accout data: ");
-        System.out.println("Accout: "
-                + account.getNumber()
-                + ", Holder: " + account.getHolder()
-                + ", Balance: $" + account.getBalance()
-        );
+        System.out.println(" ");
+        System.out.println("######################");
+        System.out.println(" ");
+        System.out.println("Accout: " + account );
+        System.out.println(" ");
+        System.out.println("######################");
+        System.out.println(" ");
+        System.out.print("Enter a deposit value: ");
+        value =  scanner.nextDouble();
+        account.deposit(value);
+
+        System.out.println(" ");
+        System.out.println("######################");
+        System.out.println("***Updated account data***");
+        System.out.print("Account: " + account );
+        System.out.println(" ");
+        System.out.println("######################");
+        System.out.println(" ");
+
+        System.out.print("Enter a withdraw value: ");
+        value = scanner.nextDouble();
+        account.withdraw(value);
+
+        System.out.println(" ");
+        System.out.println("######################");
+        System.out.println(" ");
+
+        System.out.println("***Updated account data***");
+        System.out.print("Account: " + account );
 
 
     }

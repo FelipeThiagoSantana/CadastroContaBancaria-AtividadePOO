@@ -4,14 +4,11 @@ public class Account {
    private int number;
    private String holder;
    private Double balance;
+   private double tax = -5.00;
 
 
     public int getNumber() {
         return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public String getHolder() {
@@ -26,9 +23,6 @@ public class Account {
         return balance;
     }
 
-    public void setBalance(Double balance) {
-        this.balance = balance;
-    }
 
     public Account(int number, String holder, Double balance) {
         this.number = number;
@@ -36,12 +30,36 @@ public class Account {
         this.balance = balance;
     }
 
+    public Account(int number, String holder) {
+        this.number = number;
+        this.holder = holder;
+    }
+
     public void deposit(double amount) {
         this.balance += amount;
     }
+
     public void withdraw(double amount) {
-        this.balance -= amount;
+        this.balance -= amount - tax;
+
     }
+
+
+    public String toString (){
+        return number
+                +
+                ","
+                +
+                " Holder: "
+                +
+                holder
+                +
+                ", Balance: $"
+                +
+                balance;
+
+    }
+
 
 
 
