@@ -6,7 +6,7 @@ public class Account {
    private Double balance;
    private double tax = -5.00;
 
-
+    //Getters and Setters
     public int getNumber() {
         return number;
     }
@@ -23,22 +23,22 @@ public class Account {
         return balance;
     }
 
-
+    //Metodo Construtor c/ todos os atributos
     public Account(int number, String holder, Double balance) {
         this.number = number;
         this.holder = holder;
         this.balance = balance;
     }
-
+    //Metodo Construtor c/ dois  atributo
     public Account(int number, String holder) {
         this.number = number;
         this.holder = holder;
     }
-
+    //Metodo p/ deposito
     public void deposit(double amount) {
         this.balance += amount;
     }
-
+    //Metodo p/ saque
     public void withdraw(double amount) {
         this.balance -= amount - tax;
 
@@ -56,7 +56,7 @@ public class Account {
                 +
                 ", Balance: $"
                 +
-                balance;
+                String.format("%.2f", balance);
 
     }
 

@@ -10,13 +10,13 @@ public class Main {
         String holder;
         int number;
         double balance = 0;
-        String initDeposit = null;
+        char initDeposit;
         double value;
 
 
         Locale.setDefault(Locale.US);
         Scanner scanner = new Scanner(System.in);
-
+        Account account;
 
         System.out.print("Enter account number: ");
         number = scanner.nextInt();
@@ -24,14 +24,18 @@ public class Main {
         System.out.print("Enter account holder: ");
         holder = scanner.next();
 
-        Account account = new Account(number, holder, balance);
+
         System.out.print("Is there na intial desposit (y/n)? ");
-        initDeposit = scanner.next();
+        initDeposit = scanner.next().charAt(0);
         System.out.println();
-        if (initDeposit.equals("y")) {
+
+        if (initDeposit == 'y') {
             System.out.print("Enter initial deposit value: ");
             value = scanner.nextDouble();
+            account = new Account(number, holder, balance);
             account.deposit(value);
+        }else{
+           account = new Account(number, holder);
         }
         System.out.println(" ");
         System.out.println("######################");
